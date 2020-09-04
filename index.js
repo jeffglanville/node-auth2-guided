@@ -1,3 +1,5 @@
+require("dotenv/config")
+
 const express = require("express")
 const helmet = require("helmet")
 const cors = require("cors")
@@ -19,7 +21,7 @@ server.use(session({
 server.use(usersRouter)
 server.use((err, req, res, next) => {
 	console.log(err)
-	
+
 	res.status(500).json({
 		message: "Something went wrong",
 	})
