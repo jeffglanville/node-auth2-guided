@@ -8,8 +8,10 @@ function restrict(role) {
 			message: "Invalid credentials",
 		}
 
+		// req.headers.authorization
+
 		try {
-			const token = req.headers.authorization
+			const token = req.cookies.token
 			if (!token) {
 				return res.status(401).json(authError)
 			}
